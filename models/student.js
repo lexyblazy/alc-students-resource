@@ -1,6 +1,7 @@
 //require the necessary packages
 const mongoose = require('mongoose'); 
 mongoose.Promise = global.Promise //tell mongoose to use es6 promises
+const mongooseError = require('mongoose-mongodb-errors');  
 
 const studentSchema = mongoose.Schema({
     name:{
@@ -20,5 +21,4 @@ const studentSchema = mongoose.Schema({
     year:Number,
     
 })
-
 module.exports = mongoose.model('Student',studentSchema);

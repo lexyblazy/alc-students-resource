@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/lexyblazy/alc-students-resource#readme",
   "dependencies": {
+    "body-parser": "^1.18.1",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
-    "mongoose": "^4.11.5"
+    "mongoose": "^4.11.5",
+    "mongoose-mongodb-errors": "0.0.2"
   }
 }
