@@ -7,4 +7,16 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-    This is from the navbar
+    <%if(error){%>
+        <div>
+           <h3><%=error%></h3>
+        </div>
+    <%}%>
+    
+    <%if(success){%>
+    <div>
+         <h3><%=success%></h3>
+    </div>
+         
+    <%}%>
+  

@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "alc students resource assessmnet",
   "main": "app.js",
+  "engines": {
+    "node": "7.7.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -18,9 +23,13 @@
   "homepage": "https://github.com/lexyblazy/alc-students-resource#readme",
   "dependencies": {
     "body-parser": "^1.18.1",
+    "connect-flash": "^0.1.1",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "express-validator": "^3.2.1",
     "mongoose": "^4.11.5",
-    "mongoose-mongodb-errors": "0.0.2"
+    "mongoose-mongodb-errors": "0.0.2",
+    "validator": "^8.2.0"
   }
 }

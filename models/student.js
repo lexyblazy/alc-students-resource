@@ -1,7 +1,9 @@
 //require the necessary packages
 const mongoose = require('mongoose'); 
 mongoose.Promise = global.Promise //tell mongoose to use es6 promises
-const mongooseError = require('mongoose-mongodb-errors');  
+const mongooseErrorHandler = require('mongoose-mongodb-errors'); 
+const validator = require('validator');
+
 
 const studentSchema = mongoose.Schema({
     name:{
@@ -13,12 +15,13 @@ const studentSchema = mongoose.Schema({
     email:{
         type:String,
         required:'You must supply an email',
-        unique:true,
         trim:true,
+        validate:[validator.isEmail,'Invalid Email address'],
         lowercase:true
     },
     course:String,
     year:Number,
     
 })
+
 module.exports = mongoose.model('Student',studentSchema);

@@ -15,11 +15,11 @@
      <div>
         <label for="level">Year</label>
         <select name = 'year'>
-            <option value="1">100 Level</option>
-            <option value="2">200 Level</option>
-            <option value="3">300 Level</option>
-            <option value="4">400 Level</option>
-            <option value="5">500 Level</option>
+            <%for (var i = 1; i < 6;i++){%>
+             <option value="<%=i%>">
+             <%=i * 100%>Level
+             </option>
+        <%}%>
         </select>
     </div>
     <div>

@@ -11,7 +11,7 @@ router.get('/students',studentController.readStudents);
 router.get('/students/new',studentController.newform)
 
 //create new student with the form data
-router.post('/students',studentController.createStudent);
+router.post('/students',studentController.validateStudent, studentController.createStudent);
 
 //retrieve information about a specific student
 router.get('/students/:id',studentController.getStudent);
