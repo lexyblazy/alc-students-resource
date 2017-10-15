@@ -1,0 +1,33 @@
+<%include ./partials/navbar%>
+
+<form method='post' action='/students/<%=student._id%>/update'>
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" value="<%=student.name || ''%>">
+    </div>
+     <div>
+        <label for="email">Email</label>
+        <input type="text" name="email" value="<%=student.email || ''%>">
+    </div>
+     <div>
+        <label for="course">Course</label>
+        <input type="text" name="course" value="<%=student.course || ''%>">
+    </div>
+     <div>
+        <label for="level">Year</label>
+        <select name = 'year'>
+        <%for (var i = 1; i < 6;i++){%>
+              <%   var selected = student.year === i ? 'selected': ''%>
+             <option value="<%=i%>" <%=selected%> >
+             <%=i * 100%>Level
+             </option>
+        <%}%>
+           
+        </select>
+    </div>
+    <div>
+        <input type="submit" name="" value="Update">
+    </div>
+</form>
+
+<%include ./partials/footer%>

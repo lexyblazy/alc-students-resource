@@ -18,6 +18,8 @@ mongoose.connect(localDB,err => {
     }
 })
 
+//view engine and some other relevant setups
+app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 

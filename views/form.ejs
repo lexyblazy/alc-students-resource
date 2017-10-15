@@ -1,0 +1,30 @@
+<%include ./partials/navbar%>
+<form method='post' action='/students'>
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" value="">
+    </div>
+     <div>
+        <label for="email">Email</label>
+        <input type="text" name="email" value="">
+    </div>
+     <div>
+        <label for="course">Course</label>
+        <input type="text" name="course" value="">
+    </div>
+     <div>
+        <label for="level">Year</label>
+        <select name = 'year'>
+            <option value="1">100 Level</option>
+            <option value="2">200 Level</option>
+            <option value="3">300 Level</option>
+            <option value="4">400 Level</option>
+            <option value="5">500 Level</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" name="" value="Add">
+    </div>
+</form>
+
+<%include ./partials/footer%>
