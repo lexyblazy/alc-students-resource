@@ -6,6 +6,7 @@ router.get('/',studentController.home);
 
 //get all students from DataBase
 router.get('/students',studentController.readStudents);
+router.get('/students/page/:page',studentController.readStudents);
 
 //render a form to add new student to the database
 router.get('/students/new',studentController.newform)

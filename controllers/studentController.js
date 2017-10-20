@@ -8,8 +8,21 @@ exports.home = (req,res)=>{
 //retrieve all students records from db
 exports.readStudents = async (req,res)=>{
     try {
-        const students = await Student.find();
-        res.render('students',{students})
+
+        let page = req.params.page || 1;
+        page = Number(page)
+
+        const limit = 5;
+        const skip = (page * limit) - limit;
+        //count all students in the database
+        const countPromise = Student.count();
+        //retrieve all students and sort by year
+        const studentsPromise = Student.find().sort({year:'desc'}).limit(limit).skip(skip);
+        const [count,students] = await Promise.all([countPromise,studentsPromise]);
+        const pages = Math.ceil(count / limit);
+        
+
+        res.render('students',{students,page,pages,count})
     } catch (error) {
         console.log(error.message)
     }
