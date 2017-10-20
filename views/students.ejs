@@ -1,11 +1,13 @@
 <%include ./partials/navbar%>
-    <table>
+<div class='container'>
+     <table class='table table-bordered table-striped'>
         <thead>
         <tr>
         <td>Name</td>
         <td>Email</td>
         <td>Course</td>
         <td>year</td>
+        <td>Edit</td>
         </tr>
         </thead>
         <tbody>
@@ -14,13 +16,21 @@
 
   <%students.forEach(student =>{%>
    <tr>
-    <td><%=student.name%></td>
+    <td><a href='/students/<%=student._id%>'><%=student.name%></a></td>
     <td><%=student.email%></td>
     <td><%=student.course%></td>
     <td><%=student.year%></td>
+    <td>
+        <a class='btn btn-info' href = '/students/<%=student._id%>/edit' >
+            <span class='glyphicon glyphicon-edit'></span>
+        </a>
+    </td>
+
    </tr>
  
   <%})%>
       </tbody>
       </table>
+</div>
+   
 <%include ./partials/footer%>

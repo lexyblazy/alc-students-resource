@@ -27,10 +27,12 @@ mongoose.connect(localDB,err => {
 mongoose.Promise = global.Promise;
 //view engine and some other relevant setups
 app.set('view engine','ejs');
+app.set('views',`${__dirname}/views`);
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 //some useful set of middleware
+app.use(express.static(`${__dirname}/public`))
 app.use(session({
     secret:'Some random secret here',
     resave:false,

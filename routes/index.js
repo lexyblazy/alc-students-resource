@@ -32,5 +32,13 @@ router.post('/students/:id/update',studentController.updateStudent);
 //delete a student's resource from the database
 router.post('/students/:id/delete',studentController.deleteStudent);
 
+//handle unregistered routes
+router.get('*',(req,res)=>{
+    res.send('The page your are looking for does not exist');
+})
+
+router.post('*',(req,res)=>{
+    res.send('This route does not exist');
+})
 
 module.exports = router;
