@@ -8,6 +8,7 @@
         <td>Course</td>
         <td>year</td>
         <td>Edit</td>
+        <td>Delete</td>
         </tr>
         </thead>
         <tbody>
@@ -24,6 +25,11 @@
         <a class='btn btn-info' href = '/students/<%=student._id%>/edit' >
             <span class='glyphicon glyphicon-edit'></span>
         </a>
+    </td>
+    <td>
+        <form action = '/students/<%=student._id%>/delete' method='POST'>
+            <button type="" class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button>
+        </form>
     </td>
 
    </tr>

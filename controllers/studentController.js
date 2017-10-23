@@ -17,13 +17,11 @@ exports.readStudents = async (req,res)=>{
         //count all students in the database
         const countPromise = Student.count();
         //retrieve all students and sort by year
-        const studentsPromise = Student.find().sort({year:'desc'}).limit(limit).skip(skip);
+        const studentsPromise = Student.find().sort({date:'desc'}).limit(limit).skip(skip);
         const [count,students] = await Promise.all([countPromise,studentsPromise]);
         const pages = Math.ceil(count / limit);
-        
-
         res.render('students',{students,page,pages,count})
-    } catch (error) {
+    }catch (error) {
         console.log(error.message)
     }
 

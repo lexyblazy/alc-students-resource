@@ -1,6 +1,21 @@
 <%include ./partials/navbar%>
-   <h2><%=student.name%></h2>
-    <h2><%=student.email%></h2>
-    <h2><%=student.course%></h2>
-    <h2><%=student.year%></h2>
+ <div class='container'>
+     <div class='col-md-8 col-md-offset-2 text-center'>
+        <div class='thumbnail'>
+            <img src="" alt="student image"> 
+        </div>
+
+     <div class='caption-full'>
+            <h4>Name:- <%=student.name%></h4>
+            <h4>Email:- <%=student.email%></h4>
+            <h4>Course of Study:- <%=student.course%></h4>
+            <h4>Current Year :- <%=student.year%></h4>
+            <a href="/students/<%=student._id%>/edit" class='btn btn-info btn-lg'> 
+            <span class='glyphicon glyphicon-edit'></span> Edit</a>
+    </div>
+   
+     </div>
+
+ </div>
+
 <%include ./partials/footer%>
