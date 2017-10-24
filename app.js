@@ -15,7 +15,7 @@ connect to database,
 I prefer to handle database connection request with callbacks to promises.
 Just a personal preference
 */
-const localDB = 'mongodb://127.0.0.1:27017/students'
+const localDB = 'mongodb://127.0.0.1:27017/students';
 mongoose.connect(localDB,err => {
     if (err) {
         console.log(err);
@@ -23,6 +23,7 @@ mongoose.connect(localDB,err => {
         console.log('Connection to database was succesful');
     }
 })
+
 //tell mongoose to use es6 Promises
 mongoose.Promise = global.Promise;
 //view engine and some other relevant setups

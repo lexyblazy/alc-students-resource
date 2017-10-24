@@ -131,6 +131,7 @@ exports.deleteStudent = async (req,res)=>{
     }
 }
 
+//search student resource
 exports.searchStudents = async (req,res)=>{
     const students = await Student.find({
         $text:{

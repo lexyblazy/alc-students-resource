@@ -35,14 +35,17 @@ const studentSchema = mongoose.Schema({
     toObject:{virtuals:true}
 })
 
+//generate the gravatar virtual field on the fly
 studentSchema.virtual('gravatar').get(function(){
     const hash = md5(this.email);
     return `https://gravatar.com/avatar/${hash}`
 })
 
+//index the studentSchema for search purposes
 studentSchema.index({
     name:'text',
     email:'text',
     course:'text'
 })
+
 module.exports = mongoose.model('Student',studentSchema);

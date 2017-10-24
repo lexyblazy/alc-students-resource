@@ -34,7 +34,9 @@ router.post('/students/:id/update',studentController.updateStudent);
 router.post('/students/:id/delete',studentController.deleteStudent);
 
 //search students resource
-router.post('/api/students/search',studentController.searchStudents)
+router.post('/api/students/search',studentController.searchStudents);
+
+
 //handle unregistered routes
 router.get('*',(req,res)=>{
     res.send('The page your are looking for does not exist');
