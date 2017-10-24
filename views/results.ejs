@@ -1,0 +1,56 @@
+<%include ./partials/navbar%>
+<div class='container'>
+<%if(students.length === 0){%>
+    <h2 class='text-center'>No results for "<%=query%>"</h2>
+<%}%>
+
+<%if(students.length > 0){%>
+      <h2 class='lead text-center'>Search Results for "<%=query%>"</h2>
+     <table class='table table-bordered table-striped'>
+        <thead>
+        <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Course</td>
+        <td>year</td>
+        <td>Edit</td>
+        <td>Delete</td>
+        </tr>
+        </thead>
+        <tbody>
+            
+      
+
+  <%students.forEach(student =>{%>
+   <tr>
+    <td><a href='/students/<%=student._id%>'><%=student.name%></a></td>
+    <td><%=student.email%></td>
+    <td><%=student.course%></td>
+    <td><%=student.year%></td>
+    <td>
+        <a class='btn btn-info' href = '/students/<%=student._id%>/edit' >
+            <span class='glyphicon glyphicon-edit'></span>
+        </a>
+    </td>
+    <td>
+        <form action = '/students/<%=student._id%>/delete' method='POST'>
+            <button type="" class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button>
+        </form>
+    </td>
+
+   </tr>
+ 
+  <%})%>
+      </tbody>
+      </table>
+
+    <div>
+
+ 
+    </div>
+<%}%>
+  
+
+</div>
+   
+<%include ./partials/footer%>

@@ -2,7 +2,7 @@ const Student = require('../models/student');
 
 //render the index page
 exports.home = (req,res)=>{
-    res.render('index')
+    res.redirect('/students')
 }
 
 //retrieve all students records from db
@@ -64,7 +64,7 @@ exports.createStudent = async (req,res)=>{
         const student = new Student(req.body);
         await student.save();
         req.flash('success','New student has been created');
-        res.redirect(`/students/${student._id}`);
+        res.redirect(`/students`);
 
     } catch (error) {
         console.log(error.message)
@@ -131,3 +131,12 @@ exports.deleteStudent = async (req,res)=>{
     }
 }
 
+exports.searchStudents = async (req,res)=>{
+    const students = await Student.find({
+        $text:{
+            $search:req.body.term
+        }
+    })
+
+    res.render('results',{students,query:req.body.term});
+}

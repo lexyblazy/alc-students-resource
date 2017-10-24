@@ -20,11 +20,14 @@ const studentSchema = mongoose.Schema({
         validate:[validator.isEmail,'Invalid Email address'],
         lowercase:true
     },
-    course:String,
+    course:{
+        type:String,
+        required:'You must supply a course'
+    },
     year:Number,
     date:{
         type:Date,
-        default:Date.now()
+        default:Date.now
     }
     
 },{
@@ -37,4 +40,9 @@ studentSchema.virtual('gravatar').get(function(){
     return `https://gravatar.com/avatar/${hash}`
 })
 
+studentSchema.index({
+    name:'text',
+    email:'text',
+    course:'text'
+})
 module.exports = mongoose.model('Student',studentSchema);

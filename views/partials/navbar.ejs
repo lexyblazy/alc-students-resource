@@ -17,6 +17,13 @@
 
                 <li><a href="/students">Students</a></li>
                 <li><a href="/students/new">Add Student</a></li>
+               
+            </ul>
+            <ul class='nav navbar-nav navbar-right'>
+                 <form class='navbar-form' method='post' action='/api/students/search'>
+                    <input type="text" name = 'term' placeholder='Email or name' class='form-control'>
+                    <button type="submit" class='btn btn-success'>Go</button>
+                </form>
             </ul>
         </div>
         
