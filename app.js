@@ -10,13 +10,16 @@ const expressValidator = require('express-validator');
 //requiring self-written modules
 const routes = require('./routes/index');
 
+//load in variables.env file
+require('dotenv').config({path:'variables.env'});
+
 /*
 connect to database, 
 I prefer to handle database connection request with callbacks to promises.
 Just a personal preference
 */
-const localDB = 'mongodb://127.0.0.1:27017/students';
-mongoose.connect(localDB,err => {
+
+mongoose.connect(process.env.localDB,err => {
     if (err) {
         console.log(err);
     }else{
@@ -35,7 +38,7 @@ app.use(bodyParser.json());
 //some useful set of middleware
 app.use(express.static(`${__dirname}/public`))
 app.use(session({
-    secret:'Some random secret here',
+    secret: process.env.SECRET,
     resave:false,
     saveUninitialized:false
 }));
@@ -51,6 +54,6 @@ app.use((req,res,next)=>{
 app.use(routes);
 
 //listening port
-app.listen(3000,()=>{
+app.listen(process.env.PORT,()=>{
     console.log("Server is up and running")
 })
